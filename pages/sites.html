@@ -1,47 +1,55 @@
-<!-- Build a navigation bar-->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header navbar-right">
-            <a class="navbar-brand" href="#home">טיולון</a>
-        </div>
-        <div class="collapse navbar-collapse" id="barOptions">
-            <ul class="nav navbar-nav navbar-left">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">עוד
-                <span class="caret">
-                  </span>
-              </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">צ'ק ליסט</a></li>
-                        <li><a href="#">אקסטרה</a></li>
-                        <li><a href="#">צור קשר</a></li>
-                    </ul>
-                </li>
-                <li><a href="#services">אפשרויות</a></li>
-                <li><a href="#about">עלינו</a></li>
-                <li><a href="#sites">אתרי תיירות</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<br>
-
 <!-- Build a sidebar-->
 <div id="wrapper">
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
+            <li><h2>אתרי תיירות:</h2></li>
+            <li><input type="text" class="search-query form-control" placeholder="חיפוש" ng-model="query"></li>
             <li><a href="#">לונדון</a></li>
             <li><a href="#">ניו יורק</a></li>
             <li><a href="#">ברלין</a></li>
+            <li ng-repeat="site in sites">{{site.name}}</li>
+            <a href="#menu-toggle" class="btn btn-default btn-block" id="menu-toggle">הסתר</a>
         </ul>
     </div>
-    <!--
-  <ul class="nav navbar-default sidebar-nav">
-   <li><a href="#">לונדון</a></li>
-   <li><a href="#">ניו יורק</a></li>
-   <li><a href="#">ברלין</a></li>
-   <li><a href="#">Link5</a></li>
-  </ul>
--->
 </div>
+
+<div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="row text-center">
+                  <div class="col-sm-4">
+                    <div class="thumbnail">
+                      <img src="images/london.jpg" alt="Paris">
+                      <p><strong>לונדון</strong></p>
+                      <button class="btn">תכנן את הטיול!</button>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="thumbnail">
+                      <img src="images/newyork.jpg" alt="New York">
+                      <p><strong>ניו יורק</strong></p>
+                      <button class="btn">תכנן את הטיול!</button>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="thumbnail">
+                      <img src="images/berlin.jpg" alt="San Francisco">
+                      <p><strong>ברלין</strong></p>
+                      <button class="btn">תכנן את הטיול!</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--  Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>

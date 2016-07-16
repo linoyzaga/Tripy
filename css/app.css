@@ -1,7 +1,7 @@
 .jumbotron{
     text-align: center;
     background-color: antiquewhite;
-    color: black;
+    color: crimson;
     font-family: monospace;
 }
 .jumbotron h3{
@@ -19,7 +19,7 @@
 }
 .navbar {
     margin-bottom: 0;
-    background-color: crimson;
+    background-color: black;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -43,4 +43,28 @@
 }
 div{
     direction: rtl;
+}
+.carousel-inner img {
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%); /* make all photos black and white */ 
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+.btn {
+    color: whitesmoke;
+    background-color: black;
+}
+
+.btn:hover {
+    color: crimson;
 }

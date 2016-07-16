@@ -5,7 +5,7 @@
       <title>טיולי</title>
     </head>
     <body>
-        <!-- Build a navugation bar-->
+<!--         Build a navugation bar - need to be at all pages-->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header navbar-right">
@@ -13,123 +13,105 @@
                 </div>
                 <div class="collapse navbar-collapse" id="barOptions">
                   <ul class="nav navbar-nav navbar-left">
-                    <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">עוד
-                        <span class="caret">
-                          </span>
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">צ'ק ליסט</a></li>
-                        <li><a href="#">אקסטרה</a></li>
-                        <li><a href="#">צור קשר</a></li> 
-                      </ul>
-                    </li>
-                    <li><a href="#services">אפשרויות</a></li>
-                    <li><a href="#about">עלינו</a></li>
-                    <li><a href="#sites">אתרי תיירות</a></li>
+                    <li><a href="#services">הרשמה</a></li>
+                    <li><a href="#about">התחבר</a></li>
                 </ul>
                 </div>
             </div>
         </nav>
         
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
+        <div id="mainCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+            <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#mainCarousel" data-slide-to="1"></li>
+            <li data-target="#mainCarousel" data-slide-to="2"></li>
+            </ol>
+        </div>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="ny.jpg" alt="New York">
-      <div class="carousel-caption">
-        <h3>New York</h3>
-        <p>The atmosphere in New York is lorem ipsum.</p>
-      </div> 
-    </div>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item">
+              <img src="images/newyork.jpg" alt="New York">
+              <div class="carousel-caption">
+                <h6>ניו יורק</h6>
+              </div> 
+            </div>
 
-    <div class="item">
-      <img src="chicago.jpg" alt="Chicago">
-      <div class="carousel-caption">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago - A night we won't forget.</p>
-      </div> 
-    </div>
+            <div class="item">
+              <img src="images/berlin.jpg" alt="Berlin">
+              <div class="carousel-caption">
+                <h6>ברלין</h6>
+              </div> 
+            </div>
 
-    <div class="item">
-      <img src="la.jpg" alt="Los Angeles">
-      <div class="carousel-caption">
-        <h3>LA</h3>
-        <p>Even though the traffic was a mess, we had the best time.</p>
-      </div> 
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-        
+            <div class="item active">
+              <img src="images/london.jpg" alt="London">
+              <div class="carousel-caption">
+                <h6>לונדון</h6>
+              </div> 
+            </div>
+            
+            <!--       Left and right controls -->
+            <a class="left carousel-control" href="#mainCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#mainCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+          </a>
+        </div>
+    
         <!-- Build a title -->
-        <div class="jumbotron">
-            <h3>טיולי</h3>
+        <div class="container text-center">
+            <h3><strong>טיולי</strong></h3>
             <p>הצורה הנוחה ביותר לבנות את הטיול הבא שלך</p>
             
             <!-- Subscribe for new info-->
             <form class="form-inline">
                 <input type="email" class="form-control" size="40" placeholder="כתובת אימייל">
-                <button type="button" class="btn btn-danger">לפניות</button>
+                <button type="button" class="btn">לפניות</button>
             </form>
         </div>
+        <br> <br>
         
-        <!-- Build the services the web site offer-->
-        <div class="container-fluid text-center">
-          <h2>אתרים</h2>
-          <h4>כל האתרים וכל המידע שעליך לדעת לפני הטיול הבא שלך:</h4>
-          <br>
-            <div class="row">
+<!--         Build the services the web site offer-->
+        <div class="row container-fluid text-center">
                 <div class="col-sm-4">
-                  <span class="glyphicon"></span>
-                  <h4>לונדון</h4>
-                  <p>לחץ לקבלת מידע על כל אזורי התיירות בלונדון</p>
+                    <div class="thumbnail">
+                        <a href="#about">
+                            <img src="images/aboutUs.jpg" alt="Paris">
+                            <span class="glyphicon"></span>
+                            <h4>עלינו</h4>
+                            <p>לחץ לקבלת מידע עלינו</p>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                  <span class="glyphicon"></span>
-                  <h4>ניו יורק</h4>
-                  <p>לחץ לקבלת מידע על אזורי קניות ובילויים בניו יורק</p>
+                    <div class="thumbnail">
+                        <a href="#about">
+                            <img src="images/helpUs.jpg" alt="Paris">
+                            <span class="glyphicon"></span>
+                            <h4>עזור לנו</h4>
+                            <p>לחץ להוספת יעדים משלך</p>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                  <span class="glyphicon"></span>
-                  <h4>ברלין</h4>
-                  <p>לחץ לקבלת מידע על הופעות קרובות בברלין</p>
+                    <div class="thumbnail">
+                        <a href="#sites">
+                            <img src="images/sites.jpg" alt="Paris">
+                            <span class="glyphicon"></span>
+                            <h4>אתרי תיירות</h4>
+                            <p>לחץ לבחירת יעד ולבניית מסלול</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <br><br>
-            <div class="row">
-                <div class="col-sm-4">
-                  <span class="glyphicon"></span>
-                  <h4>הונג קונג</h4>
-                  <p>לחץ לקבלת מידע על ויזות להונג קונג</p>
-                </div>
-                <div class="col-sm-4">
-                  <span class="glyphicon"></span>
-                  <h4>רומא</h4>
-                  <p>לחץ לקבלת מידע על האזורים הרומנטיים ביותר ברומא</p>
-                </div>
-                <div class="col-sm-4">
-                  <span class="glyphicon"></span>
-                  <h4>שנגחאי</h4>
-                  <p>לחץ לקבלת מידע על החיסונים אותם עליך לקבל טרם הטיסה לשנגחאי</p>
-                </div>
-            </div>
-        </div>  
+        </div>
+        
+        <footer class="text-left">
+          <p> נוצר ע"י לינוי זגה</p> 
+        </footer>
     </body>
 </html>

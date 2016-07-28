@@ -51,12 +51,12 @@
     margin-right: -250px;
 }
 
-/* Sidebar Styles */
+    /* Sidebar Styles */
 
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 100px;
     margin: 0;
     padding: 0;
     list-style: none;

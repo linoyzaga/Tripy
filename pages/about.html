@@ -1,27 +1,93 @@
- <!-- Build a navugation bar-->
-<!--
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header navbar-right">
-                    <a class="navbar-brand" href="#home">טיולון</a>
-                </div>
-                <div class="collapse navbar-collapse" id="barOptions">
-                  <ul class="nav navbar-nav navbar-left">
-                    <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">עוד
-                        <span class="caret">
-                          </span>
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">צ'ק ליסט</a></li>
-                        <li><a href="#">אקסטרה</a></li>
-                        <li><a href="#">צור קשר</a></li> 
-                      </ul>
-                    </li>
-                    <li><a href="#services">אפשרויות</a></li>
-                    <li><a href="#about">עלינו</a></li>
-                    <li><a href="#sites">אתרי תיירות</a></li>
-                  </ul>
+<section id="about-us" class="parallax">
+    <div class="container">
+        <div class="row">
+            
+            <!-- About us information  -->
+            <div class="col-sm-6">
+                <div class="about-info wow fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                    <h2>About us</h2>
+                    <p>Our names are Linoy and Haim and we are programming course graduates and we build this web site, because we love traveling and we want to share with people our trips tracks so it will be easier to you, and you won't have to work hard.</p>
+                    <p>The application is available only as a web site for now. We hope as we grop up and get more sites info and finished trips we can go on phone apps - Android and IOS. </p>
                 </div>
             </div>
-        </nav>-->
+        
+        <!-- Progress bars  -->
+        <div class="col-sm-6">
+            <div class="our-skills wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInDown;">
+              <div class="single-skill wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInDown;">
+                <p class="lead">User Experiances</p>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="95" style="width: 95%;">95%</div>
+                </div>
+              </div>
+              <div class="single-skill wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="400ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 400ms; animation-name: fadeInDown;">
+                <p class="lead">Web Design</p>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="85" style="width: 85%;">85%</div>
+                </div>
+              </div>
+              <div class="single-skill wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 500ms; animation-name: fadeInDown;">
+                <p class="lead">Programming</p>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="60" style="width: 60%;">60%</div>
+                </div>
+              </div>
+              <div class="single-skill wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="600ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 600ms; animation-name: fadeInDown;">
+                <p class="lead">Fun</p>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="85" style="width: 85%;">85%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <br> <br>
+    <!-- Contact us  -->
+    <div class="container">
+        <div class="contact-info wow fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+            <h2 class="text-center">Contact us</h2>
+            <p class="text-center">Please sent us a message with your opnion about our web      application</p>
+        </div>
+        <br>
+        <div class="contact-form wow fadeIn animated" data-wow-duration="1000ms" data-wow-delay="600ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 600ms; animation-name: fadeIn;">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <form id="main-contact-form" name="contact-form" method="post" action="#">
+                      <div class="row  wow fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" required="required">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="subject" class="form-control" placeholder="Subject" required="required">
+                      </div>
+                      <div class="form-group">
+                        <textarea name="message" id="message" class="form-control" rows="4" placeholder="Enter your message" required="required"></textarea>
+                      </div>                        
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Send Now</button>
+                      </div>
+                    </form>   
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="contact-info wow fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                      <p>If you have any בomplaints, improvement suggestions, comments or any word you can give, we would like to hear your views.</p>
+                      <ul class="address">
+                        <li><i class="fa fa-map-marker"></i> <span> Address:</span> Qiryat Ono, Israel </li>
+                        <li><i class="fa fa-envelope"></i> <span> Email:</span><a href="mailto:linoyzaga@gmail.com"> support@tripy.com</a></li>
+                      </ul>
+                    </div>                            
+                  </div>
+                </div>
+              </div>
+    </div>
+</section>

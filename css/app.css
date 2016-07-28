@@ -1,3 +1,6 @@
+html{
+    background-color: whitesmoke;
+}
 .jumbotron{
     text-align: center;
     background-color: antiquewhite;
@@ -19,7 +22,7 @@
 }
 .navbar {
     margin-bottom: 0;
-    background-color: black;
+    background-color: ghostwhite;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -29,11 +32,11 @@
 }
 
 .navbar li a, .navbar .navbar-brand {
-    color: #fff !important;
+    color: skyblue !important;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #f4511e !important;
+    color: dodgerblue !important;
     background-color: #fff !important;
 }
 
@@ -41,30 +44,43 @@
     border-color: transparent;
     color: #fff !important;
 }
-div{
-    direction: rtl;
-}
-.carousel-inner img {
-    -webkit-filter: grayscale(90%);
-    filter: grayscale(90%); /* make all photos black and white */ 
-    width: 100%; /* Set width to 100% */
-    margin: auto;
-}
 
-.carousel-caption h3 {
-    color: #fff !important;
-}
-
-@media (max-width: 600px) {
-    .carousel-caption {
-        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
-    }
-}
 .btn {
-    color: whitesmoke;
-    background-color: black;
+    color: skyblue;
+    background-color: whitesmoke;
 }
 
 .btn:hover {
-    color: crimson;
+    color: dodgerblue;
 }
+
+
+header.carousel {
+    height: 50%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 80%;
+}
+
+footer {
+    background-color: ghostwhite;
+    color: skyblue;
+    padding: 32px;
+}
+
+.carousel-inner img {
+/*    -webkit-filter: grayscale(90%);*/
+    filter: grayscale(40%);
+    width: 100%;
+    margin: auto;
+}   
+
+.carousel-caption h6 {
+    color: #fff !important;
+}
+
+
+

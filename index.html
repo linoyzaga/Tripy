@@ -7,7 +7,33 @@
         <link rel="stylesheet" href="css/bootstrap.css"/>
         <link rel="stylesheet" href="css/app.css"/>
         <link rel="stylesheet" href="css/animate.css"/>
-        <link rel="stylesheet" href="css/simple-sidebar.css"/>
+        <link rel="stylesheet" href="css/simple-sidebar.css"/>                             
+    </head>
+    <body>
+        
+        <!-- Build a navugation bar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header navbar-left">
+                    <a class="navbar-brand" href="#home">Tripy</a>
+                </div>
+                <div class="collapse navbar-collapse" id="barOptions">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#services" class="glyphicon-user   ">Sign In</a></li>
+                    <li><a href="#about" class="glyphicon-log-in">Log In</a></li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Load the single page view -->
+        <ng-view></ng-view>
+        
+        <!-- Load the footer -->
+        <footer class="text-center">
+            <p>Tripy © 2016</p> 
+            <p class="glyphicon glyphicon-envelope"> For Help and Support: linoyzaga@gmail.com</p>
+        </footer>
         
         <!-- Load the js files-->
         <script src="angular/angular.js"></script>
@@ -15,6 +41,7 @@
         <script src="angular/angular-resource.js"></script>
         <script src="angular/angular-route.js"></script>
         <script src="angular/jquery-3.0.0.js"></script>
+        <script src="angular/bootstrap.js"></script>
         <script src="app.js"></script>
                 
         <!-- Load the directives-->
@@ -23,12 +50,8 @@
         <script src="services/sitesSevices.js"></script>
         
         <!-- Load the controllers-->
-        <script src="controllers/mainController.js"></script>
-        <script src="controllers/aboutController.js"></script>
-        <script src="controllers/sitesController.js"></script>
-                                     
-    </head>
-    <body>
-        <div ng-view=""></div>
+        <script src="controllers/mainCtrl.js"></script>
+        <script src="controllers/aboutCtrl.js"></script>
+        <script src="controllers/sitesCtrl.js"></script>      
     </body>
 </html>

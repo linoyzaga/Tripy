@@ -11,15 +11,6 @@ html{
     font-family: cursive;
     font-size: 35px;
 }
-.logo-small {
-    color: #f4511e;
-    font-size: 50px;
-}
-
-.logo {
-    color: #f4511e;
-    font-size: 200px;
-}
 .navbar {
     margin-bottom: 0;
     background-color: ghostwhite;
@@ -86,21 +77,34 @@ footer {
         max-width: 370px;
 }
 
-
-
-.arrow-right {
-      width: 0; 
-  height: 0; 
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  
-  border-left: 60px solid green;
-}
-
 #about-us {
     background-image: url(../images/about-back.jpg);
     padding: 60px 0;
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
+}
+
+#sites {
+    background-image: url(../images/about-back.jpg);
+    padding: 60px 0;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+#warrper {
+    width: 100%;
+}
+
+#help-us {
+    background-image: url(../images/about-back.jpg);
+    padding: 60px 0;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+
+#map-container {
+    height: 200px;
+    width: 100%;
 }

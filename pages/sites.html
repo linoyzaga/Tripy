@@ -1,53 +1,81 @@
-<!-- Build a sidebar-->
-<div>
-    <!-- The side bar itselt -->
-    <div id="wrapper">
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li><h2>Tourist  Sites:</h2></li>
-                <li><input type="text" class="search-query form-control" placeholder="Search" ng-model="query"></li>
-                <li><a href="#">London</a></li>
-                <li><a href="#">New York</a></li>
-                <li><a href="#">Berlin</a></li>
-                <li ng-repeat="site in sites">{{site.name}}</li>
-                <a href="#menu-toggle" class="btn btn-default btn-block" id="menu-toggle">Back</a>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- Button back -->
-    <button type="button" class="arrow-right"></button>
+<section id="sites">
+        
+<div id="warrper">
     
-<div id="page-content-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="row text-center">
-                <div class="col-sm-4">
-                    <div class="thumbnail">
-                      <img src="images/london.jpg">
-                      <p><strong>London</strong></p>
-                      <button class="btn">Start Planning!</button>
-                    </div>
+    <!-- Build a sidebar-->
+    <div class="container">
+        <div class="row"> 
+            <div class="col-md-4">                
+                <div class="navbar navbar-fixed-left fadeInUp animated">
+                        <ul class="navbar-nav">
+                            <li><h3>Sites:</h3></li>
+                            <br>
+                            <li>
+                                <input type="text" class="form-control" placeholder="Search" ng-model="query">
+                            </li>
+
+                            <!-- Will be with ng-repeat -->
+                            <li><a href="#">London</a></li>
+                            <li><a href="#">New York</a></li>
+                            <li><a href="#">Berlin</a></li>
+                        </ul>
                 </div>
-                <div class="col-sm-4">
-                    <div class="thumbnail">
-                      <img src="images/ny.jpg">
-                      <p><strong>New York</strong></p>
-                      <button class="btn">Start Planning!</button>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="thumbnail">
-                      <img src="images/berlin.jpg">
-                      <p><strong>Berlin</strong></p>
-                      <button class="btn">Start Planning!</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
             </div>
         </div>
     </div>
+    
+    <!-- Build the sites grid-->
+    <div id="cities">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Trip Destinations</h2>
+                        <h3 class="text-muted">Choose your destination and start planing:</h3>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="siteBoxImg">
+                        <a href="#">
+                            <img src="/images/ny.jpg" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                    <div class="siteBoxHeader">
+                        <h4 class="text-center">New York</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="#" data-toggle="modal">
+                        <img src="/images/ny.jpg" class="img-responsive" alt="">
+                    </a>
+                    <h4 class="text-center">London</h4>
+                </div><div class="col-md-4 col-sm-6">
+                    <a href="#" data-toggle="modal">
+                        <img src="/images/ny.jpg" class="img-responsive" alt="">
+                    </a>
+                    <h4 class="text-center white-box">Hong Kong</h4>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="#" data-toggle="modal">
+                        <img src="/images/ny.jpg" class="img-responsive" alt="">
+                    </a>
+                    <h4 class="text-center">Berlin</h4>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="#" data-toggle="modal">
+                        <img src="/images/ny.jpg" class="img-responsive" alt="">
+                    </a>
+                    <h4 class="text-center">Jerusalem</h4>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="#" data-toggle="modal">
+                        <img src="/images/ny.jpg" class="img-responsive" alt="">
+                    </a>
+                    <h4 class="text-center">Paris</h4>
+                </div>
+            </div>
+        </div>
+    </div>   
+    
 </div>
+</section>

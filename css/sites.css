@@ -1,0 +1,19 @@
+.siteBoxImg {
+    max-width: 200px !important;
+}
+
+.siteBoxHeader {
+    max-width: 200px !important;
+}
+
+.white-box {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white !important;
+    text-align: center;
+    padding: 25px;
+}
+h4 {
+    text-transform: none;
+    margin: 0;
+}

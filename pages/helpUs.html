@@ -1,0 +1,97 @@
+<section id="help-us">
+    <div class="container">
+        <div class="row">
+            
+            <!-- Information how can you help us  -->
+            <div class="col-sm-6">
+                <div class="about-info fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                    <h2>Help us get bigger!</h2>
+                    <p>You have got two options:</p>
+                    <p>1. Add a new location in the world.</p>
+                    <p>2. Add a new site for a specific location in the world.</p>
+                    <p>Thank you for sharing your knowlage with us.</p>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Add new location</button>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Add new site for a location</button>
+                </div>
+            </div>
+            
+    <!-- Two Choices  -->
+            <!-- Option number #1 - Add new location -->
+            <div class="col-sm-6">
+                <form id="main-contact-form" name="city-form" method="post" action="#">
+                      <div class="row fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                        <div class="col-sm-6">
+                            <h2>Add new location</h2>
+                            <p>For a new location you need to entered the following:</p>
+                        </div>
+                          <br>
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="pic" accept="image/*" required="required">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Add</button>
+                        </div>
+                      </div>
+                </form> 
+            </div>
+            
+            <!-- Option number #2 - Add new site for a location -->
+            <div class="col-sm-6">
+                <form id="main-contact-form" name="site-form" method="post" action="#">
+                      <div class="row fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                        <div class="col-sm-6">
+                            <h2>Add new site for a location</h2>
+                            <p>For a new site for a location you need to entered the following:</p>
+                        </div>                    
+                        <div class="form-group">
+                            <input list="browsers" name="cities" class="form-control" placeholder="City" required="required">
+                            <datalist id="cities">
+                                <option value="Berlin">
+                                <option value="New York City">
+                                <option value="Paris">
+                                <option value="Hong Kong">
+                                <option value="London">
+                            </datalist>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="pic" accept="image/*" class="file">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Activity time" class="form-control" placeholder="Activity time">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Address" class="form-control" placeholder="Address">
+                             <br>
+
+                            <!-- Add a location on google maps -->
+                            <div id="map-container" class="col-md-6"></div>
+                        </div>
+                          <div class="form-group">
+                            <input type="text" name="Entrance fee" class="form-control" placeholder="Entrance fee">
+                        </div>
+                        <div class="form-group">
+                            <textarea type="text" name="Public Transport" class="form-control" placeholder="Public Transport"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea type="text" name="History of the place" class="form-control" placeholder="History of the place"></textarea>
+                        </div>                                                        
+                        <div class="form-group">
+                            <textarea type="text" name="tips" class="form-control" placeholder="Tips"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Add</button>
+                        </div>
+                      </div>                    
+                </form> 
+            </div>
+        </div>
+    </div>  
+</section>

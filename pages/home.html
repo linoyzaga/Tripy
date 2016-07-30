@@ -1,108 +1,99 @@
-<!--home.html -->
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      <title>Tripy</title>
-    </head>
-    <body>  
-        <!-- Header Carousel -->
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            
-           <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>
+<!-- Header Carousel -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+</div>
+
+<!-- Wrapper for slides -->
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <img src="images/ny.jpg" alt="New York">
+        <div class="carousel-caption">
         </div>
+    </div>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              <img src="images/ny.jpg" alt="New York">
-              <div class="carousel-caption">
-              </div> 
-            </div>
-
-            <div class="item">
-              <img src="images/berlin.jpg" alt="Berlin">
-              <div class="carousel-caption">
-              </div> 
-            </div>
-
-            <div class="item">
-              <img src="images/london.jpg" alt="London">
-              <div class="carousel-caption">
-              </div> 
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="icon-next"></span>
-            </a>
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="icon-prev"></span>
-            </a>
+    <div class="item">
+        <img src="images/berlin.jpg" alt="Berlin">
+        <div class="carousel-caption">
         </div>
+    </div>
 
-        <!-- Build a title -->
-        <div class="container text-center">
-            <h2 class="text-uppercase">Tripy</h2>
-            <p>The easyest way planning your next trip!</p>
-
-            <!-- Subscribe for new info-->
-            <form class="form-inline">
-                <input type="email" class="form-control" size="40" placeholder="Email address" required="required">
-                <button type="button" class="btn">Stay in Touch</button>
-            </form>
+    <div class="item">
+        <img src="images/london.jpg" alt="London">
+        <div class="carousel-caption">
         </div>
-        <br> <br>
+    </div>
 
-        <!-- Build the services the web site offer-->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail thumbnail4">
-                    <img src="images/sites.jpg" alt="">
-                    <div class="caption">
-                        <h4>
+    <!-- Left and right controls -->
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+</div>
+
+<!-- Build a title -->
+<div class="container text-center">
+    <h2 class="home-header">TRIPY</h2>
+    <p class="home-sub-header">The easyest way planning your next trip!</p>
+
+    <!-- Subscribe for new info-->
+    <form class="form-inline">
+        <input type="email" class="form-control" size="40" placeholder="Email address" required="required">
+        <button type="button" class="btn">Stay in Touch</button>
+    </form>
+</div>
+<br>
+<br>
+
+<!-- Build the services the web site offer-->
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="thumbnail thumbnail4">
+        <img class="homeImgSize" src="images/sites.jpg" alt="">
+        <div class="caption">
+            <h4>
                             <a href="#sites">Tourist Sites</a>
                         </h4>
-                        <p>
-                            This link lets you choose your trip destination, choose all the tourist sites you would like to visit, plan a map and print it all. So easy to plan, and having so much fun
-                        </p>
-                        <a href="#sites" data-title="Read More" class="btn-link"><span>Read More</span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail thumbnail4">
-                    <img src="images/helpUs.jpg" alt="">
-                    <div class="caption">
-                        <h4>
-                            <a href="#helpus">Help Us</a>
-                        </h4>
-                        <p>
-                            Be a part of this amazing application and help us adding more and more destinations on the map and more and more tourists sites, rank them and share your experience.
-                        </p>
-                        <a href="#helpus" data-title="Read More" class="btn-link"><span>Read More</span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail thumbnail4">
-                    <img src="images/aboutUs.jpg" alt="">
-                    <div class="caption">
-                        <h4>
+            <p>
+                This link lets you choose your trip destination, choose all the tourist sites you would like to visit, plan a map and print it all. So easy to plan, and having so much fun
+            </p>
+            <a href="#sites" data-title="Read More" class="btn-link"><span>Read More</span></a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="thumbnail thumbnail4">
+        <img class="homeImgSize" src="images/helpUs.jpg" alt="">
+        <div class="caption">
+            <h4>
+                <a href="#helpus">Help Us</a>
+            </h4>
+            <p>
+                Be a part of this amazing application and help us adding more and more destinations on the map and more and more tourists sites, rank them and share your experience.
+            </p>
+            <a href="#helpus" data-title="Read More" class="btn-link"><span>Read More</span></a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="thumbnail thumbnail4">
+        <img class="homeImgSize" src="images/aboutUs.jpg" alt="">
+        <div class="caption">
+            <h4>
                             <a href="#about">
                                 About Us
                             </a>
                         </h4>
-                        <p>
-                            Check out who are we any why we build this application, share your comments and so we can improve this application.
-                        </p>
-                        <a href="#about" data-title="Read More" class="btn-link"><span>Read More</span></a>
-                    </div>
-                </div>
-            </div>
+            <p>
+                Check out who are we any why we build this application, share your comments and so we can improve this application.
+            </p>
+            <a href="#about" data-title="Read More" class="btn-link"><span>Read More</span></a>
         </div>
-    </body>
-</html>
+    </div>
+</div>

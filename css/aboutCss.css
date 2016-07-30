@@ -1,7 +1,18 @@
-html{
+html {
     color: white;
 }
+
 h2 {
-    font-size: 30px;
     margin-bottom: 20px;
+}
+
+#about-us {
+    background-image: url(../images/about-back.jpg);
+    padding: 60px 0;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+.bar-color {
+     background-image: linear-gradient(to bottom, skyblue 0%, skyblue 100%) !important;
 }

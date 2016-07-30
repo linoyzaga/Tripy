@@ -1,64 +1,73 @@
 <!--index.html -->
 <!DOCTYPE html>
 <html ng-app="TripApp">
-    <head>
-        
-        <!-- Load the css files-->
-        <link rel="stylesheet" href="css/bootstrap.css"/>
-        <link rel="stylesheet" href="css/app.css"/>
-        <link rel="stylesheet" href="css/animate.css"/>
-        <link rel="stylesheet" href="css/simple-sidebar.css"/> 
-    </head>
-    <body>
-        
-        <!-- Build a navugation bar -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header navbar-left">
-                    <a class="navbar-brand" href="#home">
-                        <img style="max-width:30px; margin-top: -7px;" src="/images/logo.jpg">
-                    </a>
-                    <a class="navbar-brand" href="#home">Tripy</a>
-                </div>
-                <div class="collapse navbar-collapse" id="barOptions">
-                  <ul class="nav navbar-nav navbar-right">
+
+<head>
+
+    <!-- Load the css files-->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/aboutCss.css" />
+    <link rel="stylesheet" href="css/sites.css" />
+    <link rel="stylesheet" href="css/helpus.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+</head>
+
+<body>
+
+    <!-- Build a navugation bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header navbar-left">
+                <a class="navbar-brand" href="#home">
+                    <img style="max-width:30px; margin-top: -7px;" src="/images/logo.jpg">
+                </a>
+                <a class="navbar-brand" href="#home">Tripy</a>
+            </div>
+            <div class="collapse navbar-collapse" id="barOptions">
+                <ul class="nav navbar-nav navbar-right">
                     <li><a href="#services" class="glyphicon-user">Sign Up</a></li>
                     <li><a href="#about" class="glyphicon-log-in">Log In</a></li>
                 </ul>
-                </div>
             </div>
-        </nav>
-        
-        <!-- Load the single page view -->
-        <ng-view></ng-view>
-        
-        <!-- Load the footer -->
-        <footer class="text-center">
-            <p>Tripy © 2016</p> 
-            <p class="glyphicon glyphicon-envelope"> For Help and Support: linoyzaga@gmail.com</p>
-        </footer>
-        
-        <!-- Load the js files-->
-        <script src="angular/angular.js"></script>
-        <script src="angular/angular-animate.js"></script>
-        <script src="angular/angular-resource.js"></script>
-        <script src="angular/angular-route.js"></script>
-        <script src="angular/jquery-3.0.0.js"></script>
-        <script src="angular/bootstrap.js"></script>
-        <script src="app.js"></script>
-                
-        <!-- Load the directives-->
-        
-        <!-- Load the services-->
-        <script src="services/sitesSevices.js"></script>
-        
-        <!-- Load the controllers-->
-        <script src="controllers/mainCtrl.js"></script>
-        <script src="controllers/aboutCtrl.js"></script>
-        <script src="controllers/sitesCtrl.js"></script>      
-        <script src="controllers/helpUsCtrl.js"></script>
-        
-        <!-- Load google maps -->
-        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    </body>
+        </div>
+    </nav>
+
+    <!-- Load the single page view -->
+    <ng-view></ng-view>
+
+    <!-- Load the footer -->
+    <footer class="text-center">
+        <div class="footerLayout">Tripy © 2016
+            <div>
+                 <span class="glyphicon glyphicon-envelope"> For Help and Support: linoyzaga@gmail.com</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load the js files-->
+    <script src="angular/angular.js"></script>
+    <script src="angular/angular-animate.js"></script>
+    <script src="angular/angular-resource.js"></script>
+    <script src="angular/angular-route.js"></script>
+    <script src="angular/jquery-3.0.0.js"></script>
+    <script src="angular/bootstrap.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Load the directives-->
+
+    <!-- Load the services-->
+    <script src="services/sitesSevices.js"></script>
+
+    <!-- Load the controllers-->
+    <script src="controllers/mainCtrl.js"></script>
+    <script src="controllers/aboutCtrl.js"></script>
+    <script src="controllers/sitesCtrl.js"></script>
+    <script src="controllers/helpUsCtrl.js"></script>
+
+    <!-- Load google maps -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+</body>
+
 </html>

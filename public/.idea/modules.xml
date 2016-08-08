@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TripyServer.iml" filepath="$PROJECT_DIR$/.idea/TripyServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Tripy.iml" filepath="$PROJECT_DIR$/.idea/Tripy.iml" />
     </modules>
   </component>
 </project>

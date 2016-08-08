@@ -91,4 +91,36 @@ TripApp.controller('helpUsCtrl', ['$scope', function ($scope) {
         });
     });
 
+    // Choose the adding option
+    $scope.addLocationFlag = false;
+    $scope.addSiteFlag = false;
+
+    $scope.AddLocationBool = function () {
+
+        // Check if the location if false
+        if ($scope.addLocationFlag == false)
+        {
+            $scope.addLocationFlag = true;
+            $scope.addSiteFlag = false;
+        }
+        else if ($scope.addLocationFlag == true)
+        {
+            $scope.addLocationFlag = false;
+        }
+    }
+
+    $scope.AddSiteBool = function () {
+
+        // Check if the location if false
+        if ($scope.addSiteFlag == false)
+        {
+            $scope.addSiteFlag = true;
+            $scope.addLocationFlag = false;
+        }
+        else if ($scope.addSiteFlag == true)
+        {
+            $scope.addSiteFlag = false;
+        }
+    }
+
 }]);

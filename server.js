@@ -1,11 +1,11 @@
 // server.js
 
-// modules =================================================
+// modules ============================================================================================================
 var express = require('express');
 var app = express();
 var bodyparser = require("body-parser");
 
-// configuration ===========================================
+// configuration ======================================================================================================
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var url = 'mongodb://ds139725.mlab.com:39725/tripydb';
@@ -21,31 +21,30 @@ MongoClient.connect(url, function(err, db) {
     else {
         console.log('Connection established to', url);
 
-        // Functions configuration ================================
+        // Function ===================================================================================================
 
-        // Get all the locations
+        // Get all the locations function
         app.get('/sites', function (req, res) {
 
             console.log("Get all locations function node received");
 
             db.collection('Locations').find(function (err, docs) {
-                console.log(docs);
-                res.json(docs);
+
+                if (err) {
+                    console.log(err);
+                    return res(err);
+                }
+                else {
+
+                    console.log(docs.toArray());
+                    return res.send(docs.toArray());
+
+                    // return res.json(docs);
+                }
             })
-
-            console.log(Locations);
-
-            /*Locations.forEach(function (err, doc) {
-
-             assert.equal(err, null);
-
-             if (doc != null) {
-             console.dir(doc);
-             } else {
-             callback();
-             }*/
-
         })
+
+        // Close the connections
         db.close();
     }
 });
@@ -53,6 +52,6 @@ MongoClient.connect(url, function(err, db) {
 app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
 
-// Load the server application
+// Loading ============================================================================================================
 app.listen(8080);
 console.log("Server running on port 8080");

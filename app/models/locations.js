@@ -9,6 +9,6 @@
      image: String
  });
 
- module.exports = mongoose.model('Locations', LocationSchema);
+var Locations = mongoose.model('locations', LocationSchema);
 
-
+module.exports = Locations;

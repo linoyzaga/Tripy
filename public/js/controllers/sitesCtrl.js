@@ -1,4 +1,4 @@
-TripApp.controller('sitesCtrl', ['$scope', function ($scope) {
+TripApp.controller('sitesCtrl', ['$scope', 'locations', '$http', function ($scope, locations, $http) {
 
     // Scrolling the page up
     window.scrollTo(0, 0);
@@ -8,4 +8,16 @@ TripApp.controller('sitesCtrl', ['$scope', function ($scope) {
         $("#wrapper").toggleClass("toggled");
     };
 
+    getAllLocations = function () {
+
+        return $http.get('/sites').success(function (data) {
+            $scope.locations = data;
+            console.log(data);
+        })
+            .error(function (data) {
+                console.log('Error: ' + data);
+            });
+    }
+
+    $scope.locations = getAllLocations();
 }]);

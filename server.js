@@ -1,48 +1,58 @@
 // server.js
 
 // modules =================================================
-var express         = require('express');
-var app             = express();
-var bodyParser      = require('body-parser');
-var methodOverride  = require('method-override');
-var mongoose        = require('mongoose');
+var express = require('express');
+var app = express();
+var bodyparser = require("body-parser");
 
 // configuration ===========================================
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+var url = 'mongodb://ds139725.mlab.com:39725/tripydb';
 
-// config files
-var db = require('./config/db');
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
 
-// set our port
-var port = process.env.PORT || 8080;
+    // Check the connections completed
+    if (err) {
+        console.log('Unable to connect to the mongoDB server. Error:', err);
+    }
+    else {
+        console.log('Connection established to', url);
 
-// connect to our mongoDB database
-mongoose.connect(db.url);
+        // Functions configuration ================================
 
-// get all data/stuff of the body (POST) parameters
-// parse application/json
-app.use(bodyParser.json());
+        // Get all the locations
+        app.get('/sites', function (req, res) {
 
-// parse application/vnd.api+json as json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+            console.log("Get all locations function node received");
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+            db.collection('Locations').find(function (err, docs) {
+                console.log(docs);
+                res.json(docs);
+            })
 
-// override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
-app.use(methodOverride('X-HTTP-Method-Override'));
+            console.log(Locations);
 
-// set the static files location /public/img will be /img for users
-app.use(express.static(__dirname + '/public'));
+            /*Locations.forEach(function (err, doc) {
 
-// routes ==================================================
-require('./app/routes')(app); // configure our routes
+             assert.equal(err, null);
 
-// start app ===============================================
-// startup our app at http://localhost:8080
-app.listen(port);
+             if (doc != null) {
+             console.dir(doc);
+             } else {
+             callback();
+             }*/
 
-// shoutout to the user
-console.log('App listening on port ' + port);
+        })
+        db.close();
+    }
+});
 
-// expose app
-exports = module.exports = app;
+app.use(express.static(__dirname + "/public"));
+app.use(bodyparser.json());
+
+// Load the server application
+app.listen(8080);
+console.log("Server running on port 8080");

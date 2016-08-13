@@ -1,5 +1,5 @@
 // Creating the app module
-var TripApp = angular.module('TripApp', ['ngRoute']);
+var TripApp = angular.module('TripApp', ['ngRoute', 'ngResource']);
 
 // Configure the routes
 TripApp.config(function($routeProvider) {

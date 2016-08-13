@@ -48,8 +48,6 @@ router.route('/Locations')
 // REGISTER OUR ROUTES -------------------------------
 app.use('/api', router);*/
 
-
-
 // grab the locations model we just created
 var Locations = require('./models/locations');
 
@@ -61,7 +59,7 @@ module.exports = function(app) {
     app.get('/api/locations', function(req, res) {
 
         // use mongoose to get all nerds in the database
-        Locations.find(function(err, nerds) {
+        Locations.find(function(err, locations) {
 
             // if there is an error retrieving, send the error.
             if (err)

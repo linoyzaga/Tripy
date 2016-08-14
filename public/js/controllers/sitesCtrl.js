@@ -1,4 +1,4 @@
-TripApp.controller('sitesCtrl', ['$scope', 'locations', '$http', function ($scope, locations, $http) {
+TripApp.controller('sitesCtrl', ['$scope', 'getLocations', function ($scope, getLocations) {
 
     // Scrolling the page up
     window.scrollTo(0, 0);
@@ -8,16 +8,18 @@ TripApp.controller('sitesCtrl', ['$scope', 'locations', '$http', function ($scop
         $("#wrapper").toggleClass("toggled");
     };
 
-    getAllLocations = function () {
+    // Getting all the locations from the server
+    getLocations.getAllLocations().success(function(data){
+        $scope.allLocations = data;
+    }).error(function(data){
+        console.log(data);
+    });
 
-        return $http.get('/sites').success(function (data) {
-            $scope.locations = data;
-            console.log(data);
-        })
-            .error(function (data) {
-                console.log('Error: ' + data);
-            });
-    }
+    // Pagination
+/*    $scope.currPage = 0;
+    $scope.pageSize = 16;
 
-    $scope.locations = getAllLocations();
+    $scope.numberOfPages = function () {
+        return Math.ceil($scope.allLocations.length / $scope.pageSize);
+    }*/
 }]);

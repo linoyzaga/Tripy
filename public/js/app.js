@@ -29,6 +29,12 @@ TripApp.config(function($routeProvider) {
             controller  : 'helpUsCtrl'
         })
 
+        // Route to dynammic id plan trip page
+        .when('/sites/:id', {
+            templateUrl : 'pages/plan.html',
+            controller  : 'planCtrl'
+        })
+
         // Route back to home page
         .otherwise(
             {redirectTo:'/'}

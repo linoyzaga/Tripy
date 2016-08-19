@@ -38,8 +38,8 @@
 
     <!-- Subscribe for new info-->
     <form class="form-inline">
-        <input type="email" class="form-control" size="40" placeholder="Email address" required="required">
-        <button type="button" class="btn">Stay in Touch</button>
+        <input type="email" class="form-control" size="40" placeholder="Email address" required="required" ng-model="emailForm">
+        <button type="button" class="btn" ng-click="emailSend()">Stay in Touch</button>
     </form>
 </div>
 <br>

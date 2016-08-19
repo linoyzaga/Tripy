@@ -25,7 +25,7 @@ TripApp.config(function($routeProvider) {
     
         // Route for the help us page
         .when('/helpus', {
-            templateUrl : 'pages/helpus.html',
+            templateUrl : 'pages/helpUs.html',
             controller  : 'helpUsCtrl'
         })
 

@@ -19,7 +19,7 @@
 
             <!-- Two Choices  -->
             <!-- Option number #1 - Add new location -->
-            <div class="col-sm-6" ng-if="addLocationFlag">
+            <div class="col-sm-6">
                 <form name="city-form" method="post" action="#">
                     <div class="row fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
                         <div class="col-sm-6 header-straigth">
@@ -28,7 +28,7 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                            <input type="text" name="name" class="form-control" placeholder="Name" required="required" ng-model="formLocaion.name">
                         </div>
                         <div class="form-group">
                             <div class="input-group image-preview">
@@ -43,20 +43,20 @@
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file1-prev" required="required"/>
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="file1" id="file1" required="required" ng-model="formLocation.img"/>
                                 </div>
                                 </span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-lg btn-block">Add</button>
+                            <input type="button" class="btn btn-lg btn-block" value="Add" ng-click="AddNewLocation()"></input>
                         </div>
                     </div>
                 </form>
             </div>
 
-            <!-- Option number #2 - Add new site for a location -->
-            <div class="col-sm-6" ng-if="addSiteFlag">
+            <!--&lt;!&ndash; Option number #2 - Add new site for a location &ndash;&gt;
+            <div class="col-sm-6" >
                 <form name="site-form" method="post" action="#">
                     <div class="row fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
                         <div class="col-sm-6 header-straigth">
@@ -76,20 +76,20 @@
                         <div class="form-group">
                             <input type="text" name="name" class="form-control" placeholder="Name" required="required">
                         </div>
-                        <div class="form-group">
+                        <div id="file2" class="form-group">
                             <div class="input-group image-preview">
                                 <input type="text" class="form-control image-preview-filename" disabled="disabled">
                                 <span class="input-group-btn">
-                                    <!-- image-preview-clear button -->
+                                    &lt;!&ndash; image-preview-clear button &ndash;&gt;
                                         <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
                                             <span class="glyphicon glyphicon-remove"></span> Clear
                                 </button>
 
-                                <!-- image-preview-input -->
+                                &lt;!&ndash; image-preview-input &ndash;&gt;
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file2-prev" required="required"/>
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-prev-2" required="required"/>
                                 </div>
                                 </span>
                             </div>
@@ -101,7 +101,7 @@
                             <input type="text" name="Address" class="form-control" placeholder="Address">
                             <br>
 
-                            <!-- Add a location on google maps -->
+                            &lt;!&ndash; Add a location on google maps &ndash;&gt;
                             <div id="map-container" class="col-md-6"></div>
                         </div>
                         <div class="form-group">
@@ -120,7 +120,7 @@
                             <button type="submit" class="btn btn-lg btn-block">Add</button>
                         </div>
                     </div>
-                </form>
+                </form>-->
             </div>
         </div>
     </div>

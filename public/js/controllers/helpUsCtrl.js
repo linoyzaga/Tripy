@@ -1,4 +1,4 @@
-TripApp.controller('helpUsCtrl', ['$scope', function ($scope) {
+TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocations', function ($scope, addLocation, addSite, getLocations) {
 
     // Scrolling the page up
     window.scrollTo(0, 0);
@@ -95,6 +95,15 @@ TripApp.controller('helpUsCtrl', ['$scope', function ($scope) {
     $scope.addLocationFlag = false;
     $scope.addSiteFlag = false;
 
+    // Getting all the locations from the server
+    getLocations.getAllLocations().success(function(data){
+
+        // Save all the locations
+        $scope.allLocations = data;
+    }).error(function(data){
+        console.log(data);
+    });
+
     $scope.AddLocationBool = function () {
 
         // Check if the location if false
@@ -121,6 +130,52 @@ TripApp.controller('helpUsCtrl', ['$scope', function ($scope) {
         {
             $scope.addSiteFlag = false;
         }
+    }
+    
+    $scope.AddNewLocation = function () {
+
+        var f = document.getElementById('file1').files[0];
+        var r = new FileReader();
+
+        r.onloadend = function(e){
+            var data = e.target.result;
+
+            // Check if the location is already exists
+            var isExists = false;
+            for (var i = 0, len = $scope.allLocations.length; i < len; i++) {
+                if ($scope.allLocations[i].name == $scope.formLocaion.name)
+                {
+                    isExists = true;
+                }
+            }
+
+            // Send the data to the server
+            if (!isExists) {
+                debugger;
+                addLocation.addNewLocation($scope.formLocaion.name, f).success(function (data) {
+                    console.log("The location info saved");
+
+                    BootstrapDialog.show({
+                        message: 'Your location have been saved. Thank you for helping us!'
+                    });
+
+                }).error(function (data) {
+                    console.log(data);
+                    console.log("The location info did not save");
+                });
+            }
+            else {
+                BootstrapDialog.show({
+                    message: 'The location you added is allredy exists.'
+                });
+            }
+
+            // Clearing the boxes
+            $scope.formLocaion.name = "";
+            $scope.LformLocation.img = "";
+
+        }
+        r.readAsBinaryString(f);
     }
 
 }]);

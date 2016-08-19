@@ -13,13 +13,10 @@
                                 <div class="input-group col-md-12">
                                     <input type="text" class="  search-query form-control" placeholder="Search" ng-model="query"/>
                                     <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
                                     </span>
                                 </div>
                             </li>
-                            <li ng-repeat="location in allLocations | filter:query | limitTo:9 "><a href="#sites/:{{location._id}}">{{location.name}}</a></li>
+                            <li ng-repeat="location in allLocations | filter:query | limitTo:9 " ng-click="saveCurrLocation(location)"><a href="#sites/:{{location._id}}">{{location.name}}</a></li>
                             <li>And More............</li>
                         </ul>
                     </div>
@@ -40,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-6 box-size" ng-repeat="location in allLocations | filter:query | limitTo:pageSize">
-                        <a href="#/sites/{{location._id}}" data-toggle="modal">
+                        <a ng-href="#/sites/{{location._id}}" data-toggle="modal" ng-click="saveCurrLocation(location)">
                             <img class="img-size" src="{{location.image}}" class="img-responsive" alt="">
                         </a>
                         <h4 class="text-center white-box">{{location.name}}</h4>

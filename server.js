@@ -16,8 +16,6 @@ app.use(bodyparser.json());
 
 // Get all locations
 app.get('/sites', function(req, res) {
-    console.log("Get all locations function node received");
-
     db.Locations.find(function (err, docs) {
 
         // Check the connection completed
@@ -35,19 +33,14 @@ app.get('/sites', function(req, res) {
 // Get all sites for specific location
 app.get('/sites/:id', function(req, res) {
 
-    console.log("Get all sites for specific location function node received");
-
-    console.log(req);
-
-    db.sites.find({"locationID" : "req.body.locationID"}, function (err, docs) {
+    // db.sites.find({"locationID" : "req.body.locationID"}, function (err, docs) {
+    db.sites.find(function (err, docs) {
 
         // Check the connection completed
         if (err) {
             console.log('Unable to connect to the mongoDB server. Error:', err);
         }
         else {
-            console.log(docs[0]);
-
             // Return value
             return res.json(docs);
         }
@@ -91,30 +84,31 @@ app.post('/', function(req, res) {
 // Add new location to DB
 app.post('/helpus/addLocation', function(req, res) {
 
-    debugger;
     console.log("Post new locaton function node received");
     console.log(req.body);
 
     // Init the storage variable
     var storage =   multer.diskStorage({
         destination: function (req, file, callback) {
-            callback(null, './uploads');
+            callback(null, '/public/images/locations');
         },
         filename: function (req, file, callback) {
-            callback(null, file.fieldname + '-' + Date.now());
+            callback(null, req.body.name + '-' + Date.now());
         }
     });
-    var upload = multer({ storage : storage}).single('userPhoto');
+    var upload = multer({ storage : storage}).single('file');
 
     // Save the photo to the directory
     upload(req,res,function(err) {
         if(err) {
             console.log("Error uploading file.");
         }
-        console.log("File is uploaded");
+        res.json({error_code:0,err_desc:null});
     });
 
-    // Save the photo location to the db
+    // Add the location to the DB
+    req.body.image = "images/locations/" + req.body.name + ".jpg";
+
     db.Locations.insert(req.body, function (err, doc) {
 
         // Check the connection completed

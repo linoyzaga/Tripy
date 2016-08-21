@@ -41,7 +41,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
     });
 
     $(function () {
-        
+
         // Create the close button
         var closebtn = $('<button/>', {
             type: "button",
@@ -50,7 +50,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             style: 'font-size: initial;',
         });
         closebtn.attr("class", "close pull-right");
-        
+
         // Set the popover default content
         $('.image-preview').popover({
             trigger: 'manual',
@@ -59,7 +59,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             content: "There's no image",
             placement: 'bottom'
         });
-        
+
         // Clear event
         $('.image-preview-clear').click(function () {
             $('.image-preview').attr("data-content", "").popover('hide');
@@ -68,7 +68,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             $('.image-preview-input input:file').val("");
             $(".image-preview-input-title").text("Browse");
         });
-        
+
         // Create the preview image
         $(".image-preview-input input:file").change(function () {
             var img = $('<img/>', {
@@ -78,7 +78,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             });
             var file = this.files[0];
             var reader = new FileReader();
-            
+
             // Set preview image into the popover data-content
             reader.onload = function (e) {
                 $(".image-preview-input-title").text("Change");
@@ -131,51 +131,55 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             $scope.addSiteFlag = false;
         }
     }
-    
+
     $scope.AddNewLocation = function () {
 
-        var f = document.getElementById('file1').files[0];
-        var r = new FileReader();
+        debugger;
+        // Init the variables
+        var file = document.getElementById('locationFile').files[0];
+        var fd = new FormData();
+        fd.append('file', file);
 
-        r.onloadend = function(e){
-            var data = e.target.result;
-
-            // Check if the location is already exists
-            var isExists = false;
-            for (var i = 0, len = $scope.allLocations.length; i < len; i++) {
-                if ($scope.allLocations[i].name == $scope.formLocaion.name)
-                {
-                    isExists = true;
-                }
+        // Check if the location is already exists
+        var isExists = false;
+        for (var i = 0, len = $scope.allLocations.length; i < len; i++) {
+            if ($scope.allLocations[i].name == $scope.formLocaion.name)
+            {
+                isExists = true;
             }
-
-            // Send the data to the server
-            if (!isExists) {
-                debugger;
-                addLocation.addNewLocation($scope.formLocaion.name, f).success(function (data) {
-                    console.log("The location info saved");
-
-                    BootstrapDialog.show({
-                        message: 'Your location have been saved. Thank you for helping us!'
-                    });
-
-                }).error(function (data) {
-                    console.log(data);
-                    console.log("The location info did not save");
-                });
-            }
-            else {
-                BootstrapDialog.show({
-                    message: 'The location you added is allredy exists.'
-                });
-            }
-
-            // Clearing the boxes
-            $scope.formLocaion.name = "";
-            $scope.LformLocation.img = "";
-
         }
-        r.readAsBinaryString(f);
+
+        // Send the data to the server
+        if (!isExists) {
+
+            debugger;
+            addLocation.addNewLocation($scope.formLocaion.name, fd).success(function (data) {
+                console.log("The location info saved");
+
+                BootstrapDialog.show({
+                    message: 'Your location have been saved. Thank you for helping us!'
+                });
+
+            }).error(function (data) {
+                console.log(data);
+                console.log("The location info did not save");
+            });
+        }
+        else {
+            BootstrapDialog.show({
+                message: 'The location you added is allredy exists.'
+            });
+        }
+
+        // Clearing the boxes
+        $scope.formLocaion.name = "";
+        $scope.LformLocation.img = "";
+
+    }
+
+    // Add new site
+    $scope.AddNewSite = function () {
+
     }
 
 }]);

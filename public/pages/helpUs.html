@@ -43,13 +43,13 @@
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="file1" id="file1" required="required" ng-model="formLocation.img"/>
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" id="locationFile" required="required" ng-model="formLocation.img"/>
                                 </div>
                                 </span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="button" class="btn btn-lg btn-block" value="Add" ng-click="AddNewLocation()"></input>
+                            <input type="button" class="btn btn-lg btn-block" value="Add" ng-click="AddNewLocation()"/>
                         </div>
                     </div>
                 </form>

@@ -10,18 +10,83 @@
                 <div class="row">
                     <div class="col-lg-12 text-left">
                         <h2>Destinations Sites</h2>
-                        <h3 class="text-muted">Choose where you want to go:</h3>
+                        <h3 class="text-muted">Check the sites you want to go to:</h3>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-6 box-size" ng-repeat="site in allSites |  limitTo:8">
-                        <a href="#/sites/{{location._id}}" data-toggle="modal">
-                            <img class="img-size" src="{{site.image}}" class="img-responsive" alt="">
-                        </a>
-                        <h4 class="text-center white-box">{{site.name}}</h4>
+                <form id="main-contact-form" name="contact-form" method="post" action="#">
+                    <div class="row">
+                        <div class="col-md-8 box-size" ng-repeat="site in sitesById">
+                            <label class="btn v-box">
+                                <input type="checkbox" autocomplete="off" ng-model="site.selected">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </label>
+                            <a href="">
+                                <img class="img-size" src="{{site.image}}" class="img-responsive" alt="" data-toggle="modal" data-target="#detailModal" ng-click="saveCurrSite(site)">
+                            </a>
+                            <h4 class="text-center white-box">{{site.name}}</h4>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <input type="number" class="form-control" placeholder="Days Number" required="required" ng-model="numOfDays" min="1"/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="button" class="btn btn-lg btn-block" ng-click="planTrip()" value="Plan Trip Now" data-toggle="modal" data-target="#planModal"/>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Details Modal -->
+<div class="modal fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" id="detailModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{currSite.name}}</h4>
+            </div>
+            <div class="modal-body">
+                <h6>Activity Hours:</h6>
+                <p>{{currSite.activityHours}}</p>
+                <h6>History:</h6>
+                <p>{{currSite.history}}</p>
+                <h6>Public Transport:</h6>
+                <p>{{currSite.publicTransport}}</p>
+                <h6>Price:</h6>
+                <p>{{currSite.price}}</p>
+                <h6>Tips:</h6>
+                <p>{{currSite.tips}}</p>
+                <h6>Rating:</h6>
+                <div class="star-ratings-css">
+                    <div class="star-ratings-css-top"></div><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                    <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Close"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Paln Modal -->
+<div class="modal fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" id="planModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">My trip to {{location.name}}</h4>
+            </div>
+            <div class="modal-body" id="printable">
+
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Print" ng-click="printDiv('printableArea');"/>
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Close"/>
+            </div>
+        </div>
+    </div>
+</div>

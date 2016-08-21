@@ -17,10 +17,9 @@ TripApp.factory('getSites', ['$http', function($http) {
     var fac = {};
 
     // Getting the locations from the DB
-    debugger;
-    fac.getSitesByLocationId = function (id) {
+    fac.getAllSites = function () {
 
-        return $http.get('/sites/:id', {locationID: id});
+        return $http.get('/sites/:id');
     }
 
     // Return value

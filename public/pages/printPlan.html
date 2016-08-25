@@ -1,0 +1,33 @@
+<section id="printPlan">
+    <div class="container" name="printPlanDiv" id="printPlanDiv">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>My Location: {{location.name}}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class=".col-xs-12 .col-md-8 day-box" ng-repeat="day in days">
+                <h4 class="text-left">Day Number {{day}}</h4>
+                <div ng-repeat="site in trip" class=".col-xs-6">
+                    <div ng-if="site.day == day">
+                        <div>
+                            <h5>{{site.site.name}}</h5>
+                            <span><b>Address:</b> {{site.site.address}} <b>Activity Hours:</b> {{site.site.activityHours}} </span> <br>
+                            <span><b>History:</b> {{site.site.history}} </span> <br>
+                            <span><b>Public Transport:</b> {{site.site.publicTransport}} <b>Price:</b> {{site.site.price}} <b>Tips:</b> {{site.site.tips}}</span> <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class=".col-xs-6 text-right print-div">
+                <input type="button" class="btn btn-default btn-block" value="Print your plan" ng-click="printDiv()"/>
+            </div>
+        </div>
+    </div>
+</section>

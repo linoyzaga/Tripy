@@ -59,9 +59,9 @@ TripApp.factory('addLocation', ['$http', function($http) {
     var fac = {};
 
     // Getting the locations from the DB
-    fac.addNewLocation = function (name, image) {
+    fac.addNewLocation = function (name) {
 
-        return $http.post('helpus/addLocation', {"name": name, "image": image});
+        return $http.post('helpus/addLocation', {"name": name});
     };
 
     // Return value
@@ -73,9 +73,45 @@ TripApp.factory('addSite', ['$http', function($http) {
     var fac = {};
 
     // Getting the locations from the DB
-    fac.addNewLocation = function () {
+    fac.addNewSite = function (site) {
 
-        return $http.post('helpus/addSite', {});
+        return $http.post('helpus/addSite', {"site": site});
+    };
+
+    // Return value
+    return fac;
+}]);
+
+TripApp.factory('uploadILocation', ['$http', function($http) {
+
+    var fac = {};
+
+    debugger;
+    // Getting the locations from the DB
+    fac.uploadNewImage = function (file) {
+
+        return $http.post('uploadLocation', file, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+    };
+
+    // Return value
+    return fac;
+}]);
+
+TripApp.factory('uploadSite', ['$http', function($http) {
+
+    var fac = {};
+
+    debugger;
+    // Getting the locations from the DB
+    fac.uploadNewImage = function (file) {
+
+        return $http.post('uploadSite', file, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
     };
 
     // Return value

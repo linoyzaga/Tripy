@@ -35,6 +35,11 @@ TripApp.config(function($routeProvider) {
             controller  : 'planCtrl'
         })
 
+        .when('/printPlan', {
+            templateUrl : 'pages/printPlan.html',
+            controller  : 'printPlanCtrl'
+        })
+
         // Route back to home page
         .otherwise(
             {redirectTo:'/'}

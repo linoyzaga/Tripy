@@ -84,28 +84,6 @@ app.post('/', function(req, res) {
 // Add new location to DB
 app.post('/helpus/addLocation', function(req, res) {
 
-    console.log("Post new locaton function node received");
-    console.log(req.body);
-
-    // Init the storage variable
-    var storage =   multer.diskStorage({
-        destination: function (req, file, callback) {
-            callback(null, '/public/images/locations');
-        },
-        filename: function (req, file, callback) {
-            callback(null, req.body.name + '-' + Date.now());
-        }
-    });
-    var upload = multer({ storage : storage}).single('file');
-
-    // Save the photo to the directory
-    upload(req,res,function(err) {
-        if(err) {
-            console.log("Error uploading file.");
-        }
-        res.json({error_code:0,err_desc:null});
-    });
-
     // Add the location to the DB
     req.body.image = "images/locations/" + req.body.name + ".jpg";
 
@@ -116,16 +94,55 @@ app.post('/helpus/addLocation', function(req, res) {
             console.log('Unable to connect to the mongoDB server. Error:', err);
         }
         else {
+
+            // Return value
             res.json(doc);
+        }
+    });
+});
+
+// Upload a photo
+app.post('/uploadLocation', function(req, res) {
+
+    // Init the storage variable
+    var storage = multer.diskStorage({destination: './public/images/locations'});
+    var upload = multer({ storage : storage}).single('file');
+
+    // Save the photo to the directory
+    upload(req, res, function(err) {
+        if(err) {
+            console.log("Error uploading file.");
+        }
+        else {
+            res.json({error_code:0,err_desc:null});
+        }
+    });
+});
+
+app.post('/uploadSite', function(req, res) {
+
+    console.log("Post new site function node received");
+    console.log(req.body);
+
+    // Init the storage variable
+    var storage =   multer.diskStorage({destination: './public/images/sites/'});
+
+    var upload = multer({ storage : storage}).single('file');
+
+    // Save the photo to the directory
+    upload(req, res, function(err) {
+        if(err) {
+            console.log("Error uploading file.");
+        }
+        else {
+
+            res.json({error_code:0,err_desc:null});
         }
     });
 });
 
 // Add new site to DB
 app.post('/helpus/addSite', function(req, res) {
-
-    console.log("Post new site function node received");
-    console.log(reg.body);
 
     db.sites.insert(req.body, function (err, doc) {
 
@@ -134,6 +151,8 @@ app.post('/helpus/addSite', function(req, res) {
             console.log('Unable to connect to the mongoDB server. Error:', err);
         }
         else {
+
+            // Return value
             res.json(doc);
         }
     });

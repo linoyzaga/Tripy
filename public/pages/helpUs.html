@@ -43,7 +43,7 @@
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" id="locationFile" required="required" ng-model="formLocation.img"/>
+                                    <input type="file" id="locationFile" name="file" accept="image/jpg" required="required"/>
                                 </div>
                                 </span>
                             </div>
@@ -55,7 +55,7 @@
                 </form>
             </div>
 
-            <!--&lt;!&ndash; Option number #2 - Add new site for a location &ndash;&gt;
+            <!-- Option number #2 - Add new site for a location -->
             <div class="col-sm-6" >
                 <form name="site-form" method="post" action="#">
                     <div class="row fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
@@ -64,63 +64,58 @@
                             <p class="p-straigth">For a new site for a location you need to entered the following:</p>
                         </div>
                         <div class="form-group">
-                            <input list="browsers" name="cities" class="form-control" placeholder="City" required="required">
-                            <datalist id="cities">
-                                <option value="Berlin">
-                                    <option value="New York City">
-                                        <option value="Paris">
-                                            <option value="Hong Kong">
-                                                <option value="London">
-                            </datalist>
+                            <select ng-model="site.locationID" ng-options="city.name for city in allLocations" class="form-control" required="required">
+                                <option value="">City</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                            <input type="text" name="name" class="form-control" placeholder="Name" required="required" ng-model="site.name">
                         </div>
-                        <div id="file2" class="form-group">
+                        <div class="form-group">
                             <div class="input-group image-preview">
                                 <input type="text" class="form-control image-preview-filename" disabled="disabled">
                                 <span class="input-group-btn">
-                                    &lt;!&ndash; image-preview-clear button &ndash;&gt;
+                                    <!-- image-preview-clear button -->
                                         <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
                                             <span class="glyphicon glyphicon-remove"></span> Clear
                                 </button>
 
-                                &lt;!&ndash; image-preview-input &ndash;&gt;
+                                <!-- image-preview-input -->
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-prev-2" required="required"/>
+                                    <input id="siteFile" type="file" accept="image/jpeg" name="siteFile" required="required"/>
                                 </div>
                                 </span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="Activity time" class="form-control" placeholder="Activity time">
+                            <input type="text" name="Activity time" class="form-control" placeholder="Activity time" ng-model="site.activityHours">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="Address" class="form-control" placeholder="Address">
+                            <input type="text" name="Address" class="form-control" placeholder="Address" ng-model="site.address">
                             <br>
 
-                            &lt;!&ndash; Add a location on google maps &ndash;&gt;
+                            <!-- Add a location on google maps -->
                             <div id="map-container" class="col-md-6"></div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="Entrance fee" class="form-control" placeholder="Entrance fee">
+                            <input type="text" name="Entrance fee" class="form-control" placeholder="Entrance fee" ng-model="site.price">
                         </div>
                         <div class="form-group">
-                            <textarea type="text" name="Public Transport" class="form-control" placeholder="Public Transport"></textarea>
+                            <textarea type="text" name="Public Transport" class="form-control" placeholder="Public Transport" ng-model="site.publicTransport"></textarea>
                         </div>
                         <div class="form-group">
-                            <textarea type="text" name="History of the place" class="form-control" placeholder="History of the place"></textarea>
+                            <textarea type="text" name="History of the place" class="form-control" placeholder="History of the place" ng-model="site.history"></textarea>
                         </div>
                         <div class="form-group">
-                            <textarea type="text" name="tips" class="form-control" placeholder="Tips"></textarea>
+                            <textarea type="text" name="tips" class="form-control" placeholder="Tips" ng-model="site.tips"></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-lg btn-block">Add</button>
+                            <button type="submit" class="btn btn-lg btn-block" ng-click="AddNewSite()">Add</button>
                         </div>
                     </div>
-                </form>-->
+                </form>
             </div>
         </div>
     </div>

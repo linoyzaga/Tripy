@@ -28,18 +28,26 @@ TripApp.controller('planCtrl', ['$scope', 'getSites', '$rootScope', function ($s
     // Save the current checked item for model
     $scope.saveCurrSite = function (site) {
         $scope.currSite = site;
+
+        // Updating the stars
+        $scope.stars = [];
+
+        for (var i = 0; i < 5; i++) {
+            $scope.stars.push({filled: i < $scope.currSite.rating});
+        }
+
     }
 
     // Calculate the trip duration
     $scope.planTrip = function () {
+
         $scope.selectedSites = [];
 
         // Pass all the sites and get the selected ones
-        for (var i = 0; i < $scope.sitesById.length; i++){
+        for (var i = 0; i < $scope.sitesById.length; i++) {
 
             // Check if selected
-            if ($scope.sitesById[i].selected)
-            {
+            if ($scope.sitesById[i].selected) {
                 $scope.selectedSites.push($scope.sitesById[i]);
             }
         }
@@ -48,8 +56,7 @@ TripApp.controller('planCtrl', ['$scope', 'getSites', '$rootScope', function ($s
         $scope.sitesPerDay = Math.round($scope.selectedSites.length / $scope.numOfDays);
 
         // Check if there are too many sites per day
-        if ($scope.sitesPerDay > 5)
-        {
+        if ($scope.sitesPerDay > 5) {
             BootstrapDialog.show({
                 message: 'Your have choosen too many sites.'
             });
@@ -58,7 +65,7 @@ TripApp.controller('planCtrl', ['$scope', 'getSites', '$rootScope', function ($s
 
             // Init the trip plan
             $rootScope.trip = [];
-            $rootScope.days =  $scope.numOfDays;
+            $rootScope.days = $scope.numOfDays;
 
             // Pass all the days
             for (var i = 1; i <= $scope.numOfDays; i++) {
@@ -138,5 +145,4 @@ TripApp.controller('planCtrl', ['$scope', 'getSites', '$rootScope', function ($s
     $scope.deg2rad = function(deg) {
         return deg * (Math.PI/180)
     }
-
 }]);

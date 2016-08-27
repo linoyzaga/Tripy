@@ -14,7 +14,6 @@ TripApp.controller('aboutCtrl', ['$scope', 'sentContactInfo', function($scope, s
         $scope.contactInfo.subject = $scope.formSubject;
         $scope.contactInfo.message = $scope.formMessage;
 
-        debugger;
         // Send the info to the DB
         $scope.didSend = sentContactInfo.sendInfo($scope.contactInfo);
 

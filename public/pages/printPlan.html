@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row">
-            <div class=".col-xs-12 .col-md-8 day-box" ng-repeat="day in days">
+            <div class=".col-xs-12 .col-md-8 day-box contact-form fadeIn animated" ng-repeat="day in days" data-wow-duration="1000ms" data-wow-delay="600ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 600ms; animation-name: fadeIn;">
                 <h4 class="text-left">Day Number {{day}}</h4>
                 <div ng-repeat="site in trip" class=".col-xs-6">
                     <div ng-if="site.day == day">

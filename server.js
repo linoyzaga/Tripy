@@ -6,6 +6,7 @@ var app = express();
 var bodyparser = require("body-parser");
 var mongojs = require("mongojs");
 var multer  =   require('multer');
+var fs = require('fs');
 
 // configuration ======================================================================================================
 var db = mongojs('mongodb://admin:123456@ds139725.mlab.com:39725/tripydb', ['Locations', 'sites', 'contactInfo', 'emails']);
@@ -102,42 +103,85 @@ app.post('/helpus/addLocation', function(req, res) {
 });
 
 // Upload a photo
-app.post('/uploadLocation', function(req, res) {
+/*app.post('/uploadLocation', function(req, res) {
 
     // Init the storage variable
-    var storage = multer.diskStorage({destination: './public/images/locations'});
+    var storage = multer.diskStorage({destination: ./public/images/locations});
+
     var upload = multer({ storage : storage}).single('file');
 
+    // Change the file name
+    console.log(storage);
+    console.log(storage.getFilename);
+
+    var fs = require(req.files);
+    fs.rename('/path/to/Afghanistan.png', '/path/to/AF.png', function(err) {
+        if ( err ) console.log(err);
+    });
+
     // Save the photo to the directory
-    upload(req, res, function(err) {
+    upload(req, res, function(err, data) {
         if(err) {
-            console.log("Error uploading file.");
+            console.log(err);
         }
         else {
             res.json({error_code:0,err_desc:null});
         }
     });
+});*/
+
+var upload = multer({ destination: "./public/images/" })
+
+// Upload a photo
+app.post('/uploadLocation', upload.single("file"), function (req, res) {
+
+    // Init the variables
+    var file = req.file;
+    file.path = "./public/images/locations/" + req.file.originalname;
+
+    fs.readFile(file.path, function (err, data) {
+
+/*        var fd = new FormData();
+        fd.append('file', file);*/
+
+        fs.writeFile(file.originalname, data, function (err) {
+            if( err ){
+                console.error( err );
+                response = {
+                    message: 'Sorry, file couldn\'t be uploaded.',
+                    filename: req.file.originalname
+                };
+            }else{
+                response = {
+                    message: 'File uploaded successfully',
+                    filename: req.file.originalname
+                };
+            }
+            res.end( JSON.stringify( response ) );
+        });
+    });
 });
 
 app.post('/uploadSite', function(req, res) {
 
-    console.log("Post new site function node received");
-    console.log(req.body);
-
     // Init the storage variable
     var storage =   multer.diskStorage({destination: './public/images/sites/'});
-
     var upload = multer({ storage : storage}).single('file');
 
     // Save the photo to the directory
     upload(req, res, function(err) {
         if(err) {
-            console.log("Error uploading file.");
+            console.log(err);
         }
         else {
 
             res.json({error_code:0,err_desc:null});
         }
+    });
+
+    var fs = require(req.body);
+    fs.rename('/path/to/Afghanistan.png', '/path/to/AF.png', function(err) {
+        if ( err ) console.log(err);
     });
 });
 

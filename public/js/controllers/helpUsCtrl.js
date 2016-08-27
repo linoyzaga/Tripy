@@ -1,101 +1,104 @@
 TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocations', 'getSites', 'uploadILocation', 'uploadSite',
     function ($scope, addLocation, addSite, getLocations, getSites, uploadILocation, uploadSite) {
 
-        // Scrolling the page up
-        window.scrollTo(0, 0);
-
-        // Init the google map
-        function init_map() {
-            var var_location = new google.maps.LatLng(45.430817, 12.331516);
-
-            var var_mapoptions = {
-                center: var_location,
-                zoom: 14
-            };
-
-            var var_marker = new google.maps.Marker({
-                position: var_location,
-                map: var_map,
-                title: "Earth"
-            });
-
-            var var_map = new google.maps.Map(document.getElementById("map-container"),
-                var_mapoptions);
-
-            var_marker.setMap(var_map);
-        }
-
-        google.maps.event.addDomListener(window, 'load', init_map);
-
-        // Init the image preview
-        $(document).on('click', '#close-preview', function () {
-            $('.image-preview').popover('hide');
-
-            // Hover befor close the preview
-            $('.image-preview').hover(
-                function () {
-                    $('.image-preview').popover('show');
-                },
-                function () {
-                    $('.image-preview').popover('hide');
-                }
-            );
-        });
-
-        $(function () {
-
-            // Create the close button
-            var closebtn = $('<button/>', {
-                type: "button",
-                text: 'x',
-                id: 'close-preview',
-                style: 'font-size: initial;',
-            });
-            closebtn.attr("class", "close pull-right");
-
-            // Set the popover default content
-            $('.image-preview').popover({
-                trigger: 'manual',
-                html: true,
-                title: "<strong>Preview</strong>" + $(closebtn)[0].outerHTML,
-                content: "There's no image",
-                placement: 'bottom'
-            });
-
-            // Clear event
-            $('.image-preview-clear').click(function () {
-                $('.image-preview').attr("data-content", "").popover('hide');
-                $('.image-preview-filename').val("");
-                $('.image-preview-clear').hide();
-                $('.image-preview-input input:file').val("");
-                $(".image-preview-input-title").text("Browse");
-            });
-
-            // Create the preview image
-            $(".image-preview-input input:file").change(function () {
-                var img = $('<img/>', {
-                    id: 'dynamic',
-                    width: 250,
-                    height: 200
-                });
-                var file = this.files[0];
-                var reader = new FileReader();
-
-                // Set preview image into the popover data-content
-                reader.onload = function (e) {
-                    $(".image-preview-input-title").text("Change");
-                    $(".image-preview-clear").show();
-                    $(".image-preview-filename").val(file.name);
-                    img.attr('src', e.target.result);
-                    $(".image-preview").attr("data-content", $(img)[0].outerHTML).popover("show");
-                }
-                reader.readAsDataURL(file);
-            });
-        });
-
         // Choose the adding option
         $scope.addLocationFlag = false;
         $scope.addSiteFlag = false;
+
+        // Init the variables
+        $scope.formLocaion = {};
+        $scope.site = [];
+        $scope.site.activityHours = "";
+        $scope.site.price = "";
+        $scope.site.publicTransport = "";
+        $scope.site.history = "";
+        $scope.site.tips = "";
+        $scope.site.rating = 1;
+
+        // Scrolling the page up
+        window.scrollTo(0, 0);
+
+        $scope.loadImageLoader = function() {
+            // Init the image preview
+            $(document).on('click', '#close-preview', function () {
+                $('.image-preview').popover('hide');
+
+                // Hover befor close the preview
+                $('.image-preview').hover(
+                    function () {
+                        $('.image-preview').popover('show');
+                    },
+                    function () {
+                        $('.image-preview').popover('hide');
+                    }
+                );
+            });
+
+            $(function () {
+
+                // Create the close button
+                var closebtn = $('<button/>', {
+                    type: "button",
+                    text: 'x',
+                    id: 'close-preview',
+                    style: 'font-size: initial;',
+                });
+                closebtn.attr("class", "close pull-right");
+
+                // Set the popover default content
+                $('.image-preview').popover({
+                    trigger: 'manual',
+                    html: true,
+                    title: "<strong>Preview</strong>" + $(closebtn)[0].outerHTML,
+                    content: "There's no image",
+                    placement: 'bottom'
+                });
+
+                // Clear event
+                $('.image-preview-clear').click(function () {
+                    $('.image-preview').attr("data-content", "").popover('hide');
+                    $('.image-preview-filename').val("");
+                    $('.image-preview-clear').hide();
+                    $('.image-preview-input input:file').val("");
+                    $(".image-preview-input-title").text("Browse");
+                });
+
+                // Create the preview image
+                $(".image-preview-input input:file").change(function () {
+                    var img = $('<img/>', {
+                        id: 'dynamic',
+                        width: 250,
+                        height: 200
+                    });
+                    var file = this.files[0];
+                    var reader = new FileReader();
+
+                    // Set preview image into the popover data-content
+                    reader.onload = function (e) {
+                        $(".image-preview-input-title").text("Change");
+                        $(".image-preview-clear").show();
+                        $(".image-preview-filename").val(file.name);
+                        img.attr('src', e.target.result);
+                        $(".image-preview").attr("data-content", $(img)[0].outerHTML).popover("show");
+                    }
+                    reader.readAsDataURL(file);
+                });
+            });
+        }
+
+        // Function to covert address to Latitude and Longitude
+        $scope.getCoordinates =  function(address) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode( { 'address': address}, function(results, status) {
+
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+
+            // Save the coordinates
+            $scope.site.latitude = latitude;
+            $scope.site.longitude = longitude;
+            });
+        }
 
         // Getting all the locations from the server
         getLocations.getAllLocations().success(function(data){
@@ -123,6 +126,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             {
                 $scope.addLocationFlag = true;
                 $scope.addSiteFlag = false;
+                $scope.loadImageLoader();
             }
             else if ($scope.addLocationFlag == true)
             {
@@ -137,6 +141,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             {
                 $scope.addSiteFlag = true;
                 $scope.addLocationFlag = false;
+                $scope.loadImageLoader();
             }
             else if ($scope.addSiteFlag == true)
             {
@@ -148,9 +153,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
 
             // Init the variables
             var file = document.getElementById('locationFile').files[0];
-            console.log('file is ' );
-            console.dir(file);
-
+            file.path = "./public/images/locations/";
             var fd = new FormData();
             fd.append('file', file);
 
@@ -165,8 +168,6 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
 
             // Send the data to the server
             if (!isExists) {
-
-                debugger;
 
                 // Upload the image
                 uploadILocation.uploadNewImage(fd).success(function (data) {
@@ -193,9 +194,10 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
                 });
             }
 
-            // Clearing the boxes
+            // Hiding the boxes
+            $scope.addLocationFlag = false;
             $scope.formLocaion.name = "";
-            $scope.formLocaion.img = "";
+
 
         }
 
@@ -206,6 +208,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             var file = document.getElementById('siteFile').files[0];
             var fd = new FormData();
             fd.append('file', file);
+            $scope.getCoordinates($scope.site.address);
 
             // Check if the location is already exists
             var isExists = false;
@@ -220,11 +223,9 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             if (!isExists) {
 
                 debugger;
-
                 // Init the missing variables
                 $scope.site.image = "images/sites/" + $scope.site.name + ".jpg";
                 $scope.site.locationID = $scope.site.locationID._id;
-                $scope.getCoordinates($scope.site.address);
 
                 // Upload the image
                 uploadSite.uploadNewImage(fd).success(function (data) {
@@ -235,7 +236,10 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
                 })
 
                 // Insert the site data to the database
-                addSite.addNewSite($scope.site).success(function (data) {
+                addSite.addNewSite($scope.site.name, $scope.site.image, $scope.site.rating, $scope.site.address,
+                    $scope.site.activityHours, $scope.site.history, $scope.site.publicTransport, $scope.site.price,
+                    $scope.site.tips, $scope.site.locationID, $scope.site.latitude, $scope.site.longitude)
+                        .success(function (data) {
 
                     BootstrapDialog.show({
                         message: 'Your site have been saved. Thank you for helping us!'
@@ -260,25 +264,21 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             $scope.site.publicTransport = "";
             $scope.site.history = "";
             $scope.site.tips = "";
+            $scope.site.rating = 0;
 
             // Hiding the form
             $scope.addSiteFlag = false;
         }
 
-        //Function to covert address to Latitude and Longitude
-        $scope.getCoordinates =  function(address) {
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode( { 'address': address}, function(results, status) {
+        // Star rating
+        $scope.rating = 0;
+        $scope.ratings = [{
+            current: 1,
+            max: 5
+        }];
 
-                if (status == google.maps.GeocoderStatus.OK) {
-                    var latitude = results[0].geometry.location.lat();
-                    var longitude = results[0].geometry.location.lng();
-
-                    // Save the coordinates
-                    $scope.site.latitude = latitude;
-                    $scope.site.longitude = longitude;
-                }
-            });
+        $scope.getSelectedRating = function (rating) {
+            debugger;
+            $scope.site.rating = rating;
         }
-
     }]);

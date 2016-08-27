@@ -73,9 +73,10 @@ TripApp.factory('addSite', ['$http', function($http) {
     var fac = {};
 
     // Getting the locations from the DB
-    fac.addNewSite = function (site) {
+    fac.addNewSite = function (name, image, rating, address, activityHours, history, publicTransport, price, tips, locationID, latitude, longitude) {
 
-        return $http.post('helpus/addSite', {"site": site});
+        return $http.post('helpus/addSite', {"name": name, "image" : image, "rating" : rating, "address" : address, "activityHours" : activityHours,
+            "history" : history, "publicTransport" : publicTransport, "price" : price, "tips" : tips, "locationID" : locationID, "latitude" : latitude, "longitude" : longitude});
     };
 
     // Return value
@@ -86,7 +87,6 @@ TripApp.factory('uploadILocation', ['$http', function($http) {
 
     var fac = {};
 
-    debugger;
     // Getting the locations from the DB
     fac.uploadNewImage = function (file) {
 
@@ -104,7 +104,6 @@ TripApp.factory('uploadSite', ['$http', function($http) {
 
     var fac = {};
 
-    debugger;
     // Getting the locations from the DB
     fac.uploadNewImage = function (file) {
 

@@ -362,3 +362,6 @@ h6 {
 #login-dp .form-group {
     margin-bottom: 10px;
 }
+.box{
+    border: hidden;
+}

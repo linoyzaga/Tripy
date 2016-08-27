@@ -1,42 +1,46 @@
 <section id="plan">
-
     <div class="container">
         <div class="row">
 
-            <div class="col-sm-8">
+            <div class="col-sm-6">
                 <h1>Your Location: {{location.name}}</h1>
             </div>
             <div class="about-info fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
-                <div class="row">
-                    <div class="col-lg-12 text-left">
-                        <h2>Destinations Sites</h2>
-                        <h3 class="text-muted">Check the sites you want to go to:</h3>
+                <div class="col-lg-12 text-left">
+                    <h2>Destinations Sites</h2>
+                    <h3 class="text-muted">Check the sites you want to go to:</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <form id="main-contact-form" name="contact-form" method="post" action="#" class="contact-form fadeIn animated" data-wow-duration="1000ms" data-wow-delay="600ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 600ms; animation-name: fadeIn;">
+                <div class="col-sm-6">
+                    <div class="col-md-6 box-size" ng-repeat="site in sitesById">
+                        <label class="btn v-box">
+                            <input type="checkbox" autocomplete="off" ng-model="site.selected">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </label>
+                        <a href="">
+                            <img class="img-size" src="{{site.image}}" class="img-responsive" alt="" data-toggle="modal" data-target="#detailModal" ng-click="saveCurrSite(site)">
+                        </a>
+                        <h4 class="text-center white-box">{{site.name}}</h4>
                     </div>
                 </div>
-                <form id="main-contact-form" name="contact-form" method="post" action="#">
-                    <div class="row">
-                        <div class="col-md-8 box-size" ng-repeat="site in sitesById">
-                            <label class="btn v-box">
-                                <input type="checkbox" autocomplete="off" ng-model="site.selected">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>
-                            <a href="">
-                                <img class="img-size" src="{{site.image}}" class="img-responsive" alt="" data-toggle="modal" data-target="#detailModal" ng-click="saveCurrSite(site)">
-                            </a>
-                            <h4 class="text-center white-box">{{site.name}}</h4>
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <input type="number" class="form-control" placeholder="Days Number" required="required" ng-model="numOfDays" min="1"/>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <a ng-href="#/printPlan" data-toggle="modal" ng-click="planTrip()">
-                                <input type="button" class="btn btn-lg btn-block" value="Plan Trip Now"/>
-                            </a>
-                        </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="number" class="form-control" placeholder="Days Number" required="required" ng-model="numOfDays" min="1"/>
                     </div>
-                </form>
-            </div>
+                    <div class="form-group">
+                        <a ng-href="#/printPlan" data-toggle="modal" ng-click="planTrip()">
+                            <input type="button" class="btn btn-lg btn-block" value="Plan Trip Now"/>
+                        </a>
+                    </div>
+                </div>
+            </form>
+
         </div>
     </div>
 </section>
@@ -64,9 +68,13 @@
                 <h6>Tips:</h6>
                 <p>{{currSite.tips}}</p>
                 <h6>Rating:</h6>
-                <div class="star-ratings-css">
-                    <div class="star-ratings-css-top"></div><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <div class="star-style">
+                    <ul class="rating">
+                        <li ng-repeat="star in stars" ng-class="star" class="glyphicon glyphicon-star">
+                        </li>
+                    </ul>
                 </div>
+            </div>
             <div class="modal-footer">
                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Close"/>
             </div>

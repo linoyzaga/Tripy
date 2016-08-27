@@ -4,8 +4,8 @@
 
             <!-- About us information  -->
             <div class="col-sm-6">
-                <div class="about-info fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <h2 class="section-heading">About us</h2>
+                <div class="fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                    <h2>About us</h2>
                     <p>My name is Linoy and I am programming course graduate and I build this web site, because I love traveling and we want to share with people our trips tracks so it will be easier to you, and you won't have to work hard.</p>
                     <p>The application is available only as a web site for now. I hope as we grow up and get more sites info and finished trips we can go on phone apps - Android and IOS. </p>
                 </div>
@@ -13,26 +13,26 @@
 
             <!-- Progress bars  -->
             <div class="col-sm-6">
-                <div class="fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInDown;">
-                    <div class="fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInDown;">
+                <div class="row fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInDown;">
+                    <div class="row fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInDown;">
                         <p class="lead">User Experiances</p>
                         <div class="progress">
                             <div class="progress-bar bar-color" role="progressbar" aria-valuetransitiongoal="95" style="width: 95%;">95%</div>
                         </div>
                     </div>
-                    <div class="fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="400ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 400ms; animation-name: fadeInDown;">
+                    <div class="row fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="400ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 400ms; animation-name: fadeInDown;">
                         <p class="lead">Web Design</p>
                         <div class="progress">
                             <div class="progress-bar bar-color" role="progressbar" aria-valuetransitiongoal="85" style="width: 85%;">85%</div>
                         </div>
                     </div>
-                    <div class="fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 500ms; animation-name: fadeInDown;">
+                    <div class="row fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 500ms; animation-name: fadeInDown;">
                         <p class="lead">Programming</p>
                         <div class="progress">
                             <div class="progress-bar bar-color" role="progressbar" aria-valuetransitiongoal="60" style="width: 60%;">60%</div>
                         </div>
                     </div>
-                    <div class="fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="600ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 600ms; animation-name: fadeInDown;">
+                    <div class="row fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="600ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 600ms; animation-name: fadeInDown;">
                         <p class="lead">Fun</p>
                         <div class="progress">
                             <div class="progress-bar bar-color" role="progressbar" aria-valuetransitiongoal="85" style="width: 85%;">85%</div>
@@ -47,47 +47,56 @@
     <br>
     <!-- Contact us  -->
     <div class="container">
-        <div class="contact-info fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
-            <h2 class="section-heading text-center">Contact us</h2>
+        <div class="row fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+            <h2 class="text-center">Contact us</h2>
             <p class="text-center">Please sent us a message with your opnion about our web application.</p>
         </div>
         <br>
         <div class="row fadeIn animated" data-wow-duration="1000ms" data-wow-delay="600ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 600ms; animation-name: fadeIn;">
             <div class="row">
                 <div class="col-sm-6">
-                    <form id="main-contact-form" name="contact-form" method="post" action="#">
+                    <form name="contactForm" method="post" action="#" role="form" class="contact-form">
                         <div class="row fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="Name" required="required" ng-model="formName">
+                                    <input type="text" name="name" class="form-control" placeholder="Name" ng-model="formName" required>
+                                    <p ng-show="contactForm.name.$error.required && contactForm.name.$dirty" class="missingStyle">Name is required.</p>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="Email Address" required="required" ng-model="formEmail">
+                                    <input type="email" name="email" class="form-control" placeholder="Email Address" required ng-model="formEmail">
+                                    <p ng-show="contactForm.email.$error.required && contactForm.email.$dirty" class="missingStyle">Email is required.</p>
+                                    <p ng-show="contactForm.email.$invalid && contactForm.email.$dirty" class="missingStyle">Email is invalid.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subject" class="form-control" placeholder="Subject" required="required" ng-model="formSubject">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required ng-model="formSubject">
+                            <p ng-show="contactForm.subject.$error.required && contactForm.subject.$dirty" class="missingStyle">Subject is required.</p>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Enter your message" required="required" ng-model="formMessage"></textarea>
+                            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Enter your message" required ng-model="formMessage"></textarea>
+                            <p ng-show="contactForm.message.$error.required && contactForm.message.$dirty" class="missingStyle">Message is required.</p>
                         </div>
                         <div class="form-group">
-                            <input type="button" class="btn btn-lg btn-block" ng-click="sendInfo()" value="Send Now"/>
+                            <input type="button" class="btn btn-lg btn-block" ng-click="sendInfo()" value="Send Now" ng-disabled="contactForm.$invalid"/>
                         </div>
                     </form>
                 </div>
                 <div class="col-sm-6">
-                    <div class="contact-info wow fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                    <div class="row fadeInUp animated" data-wow-duration="1000ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInUp;">
                         <p>If you have any complaints, improvement suggestions, comments or any word you can give, we would like to hear your views.</p>
                         <ul class="address">
                             <li>
-                                <span> Address:</span> Qiryat Ono, Israel
+                                <p>
+                                    <span> Address:</span> Qiryat Ono, Israel
+                                </p>
                             </li>
                             <li>
-                                <span> Email:</span><a href="mailto:linoyzaga@gmail.com"> support@tripy.com</a>
+                                <p>
+                                    <span> Email:</span><a href="mailto:linoyzaga@gmail.com"> support@tripy.com</a>
+                                </p>
                             </li>
                         </ul>
                     </div>

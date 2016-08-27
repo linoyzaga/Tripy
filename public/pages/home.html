@@ -37,9 +37,15 @@
     <p class="home-sub-header">The easyest way planning your next trip!</p>
 
     <!-- Subscribe for new info-->
-    <form class="form-inline">
-        <input type="email" class="form-control" size="40" placeholder="Email address" required="required" ng-model="emailForm">
-        <button type="button" class="btn" ng-click="emailSend()">Stay in Touch</button>
+    <form name="emailForm" class="form-inline">
+        <div class="form-group">
+            <input type="email" name="email" class="form-control" size="40" placeholder="Email address" required ng-model="emailForm">
+            <p ng-show="emailForm.email.$error.required && emailForm.email.$dirty" class="missingStyle">Email is required.</p>
+            <p ng-show="emailForm.email.$invalid && emailForm.email.$dirty" class="missingStyle">Email is invalid.</p>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn" ng-click="emailSend()" ng-disabled="emailForm.$invalid">Stay in Touch</button>
+        </div>
     </form>
 </div>
 <br>

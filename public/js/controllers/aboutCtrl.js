@@ -35,5 +35,4 @@ TripApp.controller('aboutCtrl', ['$scope', 'sentContactInfo', function($scope, s
             console.log("The contact info did not save");
         }
     };
-
 }]);

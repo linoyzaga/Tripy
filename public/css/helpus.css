@@ -6,13 +6,6 @@
     background-size: cover;
 }
 
-#map-container {
-    height: 200px;
-    width: 100%;
-    margin: 10px;
-    margin-left: 0px;
-}
-
 .header-straigth {
     width: 17em !important;
     padding-left: 0px;

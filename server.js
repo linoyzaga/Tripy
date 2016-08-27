@@ -12,6 +12,7 @@ var fs = require('fs');
 var db = mongojs('mongodb://admin:123456@ds139725.mlab.com:39725/tripydb', ['Locations', 'sites', 'contactInfo', 'emails']);
 app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
+var upload = multer({ destination: "./public/images/" });
 
 // Function ===========================================================================================================
 
@@ -130,8 +131,6 @@ app.post('/helpus/addLocation', function(req, res) {
     });
 });*/
 
-var upload = multer({ destination: "./public/images/" })
-
 // Upload a photo
 app.post('/uploadLocation', upload.single("file"), function (req, res) {
 
@@ -144,20 +143,23 @@ app.post('/uploadLocation', upload.single("file"), function (req, res) {
 /*        var fd = new FormData();
         fd.append('file', file);*/
 
-        fs.writeFile(file.originalname, data, function (err) {
-            if( err ){
+        fs.writeFile(file.originalname, file, function (err) {
+            if( err ) {
+
                 console.error( err );
                 response = {
                     message: 'Sorry, file couldn\'t be uploaded.',
                     filename: req.file.originalname
                 };
-            }else{
+            } else {
+
+                console.log(data);
                 response = {
                     message: 'File uploaded successfully',
                     filename: req.file.originalname
                 };
             }
-            res.end( JSON.stringify( response ) );
+            res.end(JSON.stringify(response));
         });
     });
 });

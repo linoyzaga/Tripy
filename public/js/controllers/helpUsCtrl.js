@@ -13,7 +13,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
         $scope.site.publicTransport = "";
         $scope.site.history = "";
         $scope.site.tips = "";
-        $scope.site.rating = 1;
+        $scope.site.rating = 0;
 
         // Scrolling the page up
         window.scrollTo(0, 0);
@@ -88,15 +88,16 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
 
         // Function to covert address to Latitude and Longitude
         $scope.getCoordinates =  function(address) {
+
             var geocoder = new google.maps.Geocoder();
-            geocoder.geocode( { 'address': address}, function(results, status) {
+            geocoder.geocode( {'address': address}, function(results, status) {
 
-            var latitude = results[0].geometry.location.lat();
-            var longitude = results[0].geometry.location.lng();
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
 
-            // Save the coordinates
-            $scope.site.latitude = latitude;
-            $scope.site.longitude = longitude;
+                // Save the coordinates
+                $scope.site.latitude = latitude;
+                $scope.site.longitude = longitude;
             });
         }
 
@@ -153,9 +154,10 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
 
             // Init the variables
             var file = document.getElementById('locationFile').files[0];
-            file.path = "./public/images/locations/";
+            var name = $scope.formLocaion.name + '.jpg';
+
             var fd = new FormData();
-            fd.append('file', file);
+            fd.append('file', file, name);
 
             // Check if the location is already exists
             var isExists = false;
@@ -198,7 +200,8 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
             $scope.addLocationFlag = false;
             $scope.formLocaion.name = "";
 
-
+            // Reload locations
+            getLocations.getAllLocations();
         }
 
         // Add new site
@@ -206,9 +209,9 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
 
             // Init the variables
             var file = document.getElementById('siteFile').files[0];
+            var name = $scope.site.name + '.jpg';
             var fd = new FormData();
-            fd.append('file', file);
-            $scope.getCoordinates($scope.site.address);
+            fd.append('file', file, name);
 
             // Check if the location is already exists
             var isExists = false;
@@ -226,6 +229,7 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
                 // Init the missing variables
                 $scope.site.image = "images/sites/" + $scope.site.name + ".jpg";
                 $scope.site.locationID = $scope.site.locationID._id;
+                $scope.getCoordinates($scope.site.address);
 
                 // Upload the image
                 uploadSite.uploadNewImage(fd).success(function (data) {
@@ -278,7 +282,6 @@ TripApp.controller('helpUsCtrl', ['$scope', 'addLocation', 'addSite', 'getLocati
         }];
 
         $scope.getSelectedRating = function (rating) {
-            debugger;
             $scope.site.rating = rating;
         }
     }]);

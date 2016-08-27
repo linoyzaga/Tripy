@@ -37,14 +37,14 @@
     <p class="home-sub-header">The easyest way planning your next trip!</p>
 
     <!-- Subscribe for new info-->
-    <form name="emailForm" class="form-inline">
+    <form name="emailForm" class="form-inline" method="post" action="#" role="form">
         <div class="form-group">
             <input type="email" name="email" class="form-control" size="40" placeholder="Email address" required ng-model="emailForm">
-            <p ng-show="emailForm.email.$error.required && emailForm.email.$dirty" class="missingStyle">Email is required.</p>
-            <p ng-show="emailForm.email.$invalid && emailForm.email.$dirty" class="missingStyle">Email is invalid.</p>
+            <p ng-show="emailForm.email.$error.required && emailForm.email.$dirty" class="missingStyle"> Email is required.</p>
+            <p ng-show="emailForm.email.$invalid && emailForm.email.$dirty" class="missingStyle"> Email is invalid.</p>
         </div>
         <div class="form-group">
-            <button type="button" class="btn" ng-click="emailSend()" ng-disabled="emailForm.$invalid">Stay in Touch</button>
+            <input type="button" class="btn" value="Stay in Touch" ng-disabled="emailForm.$invalid" ng-click="emailSend()"/>
         </div>
     </form>
 </div>

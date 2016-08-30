@@ -44,7 +44,7 @@
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input type="file" id="locationFile" name="file" accept="image/jpg" required="required"/>
+                                    <input type="file" id="locationFile" name="file" accept="image/jpg" required/>
                                 </div>
                                 </span>
                             </div>
@@ -87,7 +87,7 @@
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input id="siteFile" type="file" accept="image/jpeg" name="siteFile" required="required"/>
+                                    <input id="siteFile" type="file" accept="image/jpeg" name="siteFile" required/>
                                 </div>
                                 </span>
                             </div>
@@ -116,7 +116,7 @@
                         </div>
                         <div class="form-group">
                             <span ng-repeat="rating in ratings" class="text-center">
-                                <div star-rating rating-value="rating.current" max="rating.max" class="star-size"></div>
+                                <div star-rating rating-value="rating.current" max="rating.max" class="star-size" ng-click="getSelectedRating(rating)"></div>
                             </span>
                         </div>
                         <br>
@@ -126,7 +126,7 @@
                     </div>
                 </form>
             </div>
-            
+
         </div>
     </div>
 </section>

@@ -152,11 +152,6 @@ app.post('/uploadSite', function(req, res) {
             res.json({error_code:0,err_desc:null});
         }
     });
-
-    var fs = require(req.body);
-    fs.rename('/path/to/Afghanistan.png', '/path/to/AF.png', function(err) {
-        if ( err ) console.log(err);
-    });
 });
 
 // Add new site to DB

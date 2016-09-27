@@ -6,3 +6,6 @@ Plan your next trip, print it and take it with you. You will have tips, history,
 
 The site build with Express.js as server and Angular.js as client.
 
+Live App Demo
+
+http://tripy-app.herokuapp.com/#/
